@@ -1,0 +1,7 @@
+*.jpg
+**/*.jpg
+*/*.jpg
+*.xlsx
+*.xlsm
+**/*.xlsx
+**/*.xlsm
