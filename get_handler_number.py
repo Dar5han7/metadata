@@ -44,10 +44,15 @@ ws["A1"] = "Handler No"
 ws["B1"] = "Accession No"
 ws["C1"] = "index No"
 
-for i in range(200,300):
-
+for i in range(900,921):
+    # // *[ @ id = "content"] / div[3] / div / div[1] / table / tbody / tr[6] / td[2] / a
     driver.find_element_by_xpath('//*[@id="content"]/div[2]/table/tbody/tr['+str(i)+']/td[2]/a').click()
-    handle_number = driver.find_element_by_xpath('//*[@id="content"]/div[3]/div/div[1]/table/tbody/tr[5]/td[2]/a').text
+    try:
+        handle_number = driver.find_element_by_xpath('//*[@id="content"]/div[3]/div/div[1]/table/tbody/tr[5]/td[2]/a').text
+    except Exception:
+        handle_number = driver.find_element_by_xpath(
+            '// *[ @ id = "content"] / div[3] / div / div[1] / table / tbody / tr[6] / td[2] / a').text
+
     accesion_number = driver.find_element_by_xpath('//*[@id="content"]/div[3]/div/div[1]/div[2]/table/tbody/tr[2]/td[1]/a').text
     ws[f"A{i}"] = handle_number
     ws[f"B{i}"] = accesion_number

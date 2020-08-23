@@ -43,16 +43,17 @@ ws = wb.active
 ws["A1"] = "Handler No"
 
 
-for i in range(140,150):
+for i in range(479,500):
 
     driver.find_element_by_xpath('//*[@id="content"]/div[2]/table/tbody/tr['+str(i)+']/td[2]/a').click()
     time.sleep(1)
     driver.find_element_by_xpath('/html/body/main/div[3]/div/div[2]/div/div[2]/form[1]/input[2]').click()
-    entry = driver.find_element_by_name('value_dc_coverage_spatial_00').text
-    if entry != "Kaushambi, Uttar Pradesh, India":
+    entry = driver.find_element_by_name('value_dc_description_00').text
+    check = driver.find_element_by_name('value_dc_format_material_00').text
+    if entry != "Beads of Glass material found in Kaushambi, Uttar Pradesh, India between 1st - 5th Century C.E." and check =="Glass":
         time.sleep(1)
-        driver.find_element_by_name('value_dc_coverage_spatial_00').clear()
-        driver.find_element_by_name('value_dc_coverage_spatial_00').send_keys("Kaushambi, Uttar Pradesh, India")
+        driver.find_element_by_name('value_dc_description_00').clear()
+        driver.find_element_by_name('value_dc_description_00').send_keys("Beads of Glass material found in Kaushambi, Uttar Pradesh, India between 1st - 5th Century C.E.")
         time.sleep(1)
         accesion_number = driver.find_element_by_name('value_dc_identifier_accessionnumber_00').text
         ws[f"A{i}"] = accesion_number

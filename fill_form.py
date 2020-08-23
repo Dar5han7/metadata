@@ -31,10 +31,10 @@ import time
 from openpyxl    import *
 from collections import defaultdict
 from selenium.webdriver.support.ui import Select
-path = "Metadata -Anand.xlsm"
+path = "Metadata -Anand - AB_MUE_20-08-2020.xlsm"
 Sheet = "SHEET"
 wb = load_workbook(path)
-img_path = r"F:\metadata\anand"
+img_path = r"F:\nvli\AB_MUE_20-08-2020"
 
 dspace_dict = defaultdict(list)
 Sheet_Name = wb[Sheet]
@@ -49,7 +49,7 @@ for row in Sheet_Name.iter_rows():
     for cell_ind,cell in enumerate(Row):
         # print(cell,cell_ind)
         dspace_dict[keys[cell_ind]].append( cell)
-    if count == 300:
+    if count ==300:
         break
     else:
         count +=1
@@ -60,7 +60,7 @@ print(dspace_dict)
 
 driver = webdriver.Chrome()
 # driver1 = webdriver.Chrome()
-driver.implicitly_wait(10)
+driver.implicitly_wait(5)
 #
 usrName = 'anand.swaroop.nvli@gmail.com'
 pssWrd = "anand@1#3"
@@ -110,24 +110,32 @@ driver.switch_to.window(window_after)
 # driver1.wait = WebDriverWait(driver1,10)
 driver.wait = WebDriverWait(driver,10)
 failed_count=0
-for i in range(251,301):
+for i in range(229,234):
     for dspace_instance in dspace_dict:
         print(dspace_instance)
         # print(dspace_instance[:-1])
         print(dspace_dict[dspace_instance][i])
 
         if dspace_instance in ['dc_identifier_qualifier_1','dc_format_qualifier_1','dc_format_qualifier_2',
-                               'dc_format_qualifier_3','dc_coverage_qualifier_1','dc_coverage_qualifier_2','dc_type']:
-            select = Select(driver.find_element_by_name(dspace_instance))
+                               'dc_format_qualifier_3','dc_format_qualifier_4','dc_coverage_qualifier_1','dc_coverage_qualifier_2','dc_type']:
+            try:
+                select = Select(driver.find_element_by_name(dspace_instance))
+            except Exception:
+                select = Select(driver.find_element_by_name(dspace_instance[:-1]+str(int(dspace_instance[-1])-1)))
+
             try:
                 select.select_by_value(dspace_dict[dspace_instance][i].lower().replace(" ",""))
             except Exception:
                 select.select_by_value(dspace_dict[dspace_instance][i])
+                # try:
+                #     select.select_by_value(dspace_dict[dspace_instance[:-1]+str(int(dspace_instance[-1])-1)][i].lower().replace(" ", ""))
+                # except Exception:
+                #     select.select_by_value(dspace_dict[dspace_instance][i])
+                #
 
 
 
-
-        elif dspace_instance in ['submit_dc_coverage_add',"submit_next1","submit_next2",'submit_dc_format_add1', 'submit_dc_format_add2',"submit_upload","submit_next3","submit_next4","submit_grant","submit"]:
+        elif dspace_instance in ['submit_dc_coverage_add',"submit_next1","submit_next2",'submit_dc_format_add1', 'submit_dc_format_add2',"submit_upload","submit_next3","submit_next4","submit_grant","submit",'submit_dc_format_add3']:
             try:
                 link = driver.find_element_by_name(dspace_instance).click()
             except Exception:
@@ -151,8 +159,8 @@ for i in range(251,301):
                     driver.switch_to.window(window_after)
                     driver.wait = WebDriverWait(driver, 20)
                     print(dspace_dict["dc_identifier_value_1"][i], 'could not be uploaded')
-                    with open("fail.txt", 'a') as f:
-                        f.write(dspace_dict["dc_identifier_value_1"][i], 'could not be uploaded\n')
+                    # with open("fail.txt", 'a') as f:
+                    #     f.write(dspace_dict["dc_identifier_value_1"][i], 'could not be uploaded\n')
                     failed_count += 1
                     break
 
@@ -204,10 +212,18 @@ for i in range(251,301):
                 autoit.win_wait(handle, 100)
                 autoit.control_set_text(handle, "Edit1", jpg)
                 autoit.control_click(handle, "Button1")
-                time.sleep(20)
+                time.sleep(15)
 
         elif dspace_instance == None:
+            # with open("success.txt", "a") as f:
+            #     f.write(dspace_dict["dc_identifier_value_1"][i], 'uploaded\n')
             continue
         else:
-            driver.find_element_by_name(dspace_instance).send_keys(dspace_dict[dspace_instance][i])
+            try:
+                # if dspace_dict[dspace_instance][i] !="":
+                driver.find_element_by_name(dspace_instance).send_keys(dspace_dict[dspace_instance][i])
+                # else:
+                #     pass
+            except Exception:
+                pass
 
