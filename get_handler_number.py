@@ -39,19 +39,23 @@ try:
 except:
     wb = Workbook()
 
+
+
 ws = wb.active
 ws["A1"] = "Handler No"
 ws["B1"] = "Accession No"
 ws["C1"] = "index No"
 
-for i in range(900,921):
+for i in range(900,1405):
     # // *[ @ id = "content"] / div[3] / div / div[1] / table / tbody / tr[6] / td[2] / a
     driver.find_element_by_xpath('//*[@id="content"]/div[2]/table/tbody/tr['+str(i)+']/td[2]/a').click()
-    try:
-        handle_number = driver.find_element_by_xpath('//*[@id="content"]/div[3]/div/div[1]/table/tbody/tr[5]/td[2]/a').text
-    except Exception:
-        handle_number = driver.find_element_by_xpath(
-            '// *[ @ id = "content"] / div[3] / div / div[1] / table / tbody / tr[6] / td[2] / a').text
+    # try://*[@id="content"]/div[3]/div/div[1]/div[2]/table/tbody/tr[6]/td[2]
+    #     handle_number = driver.find_element_by_xpath('// *[ @ id = "content"] / div[3] / div / div[1] / table / tbody / tr[6] / td[2] / a').text
+    #
+    # except Exception:
+    #     handle_number = driver.find_element_by_xpath('//*[@id="content"]/div[3]/div/div[1]/table/tbody/tr[5]/td[2]/a').text
+    handle_number = driver.find_element_by_xpath('// *[ @ id = "content"] / div[3] / div / div[1] / div[1] / code').text
+
 
     accesion_number = driver.find_element_by_xpath('//*[@id="content"]/div[3]/div/div[1]/div[2]/table/tbody/tr[2]/td[1]/a').text
     ws[f"A{i}"] = handle_number
@@ -62,3 +66,4 @@ for i in range(900,921):
 
 wb.save(excel_file_name)
 wb.close()
+

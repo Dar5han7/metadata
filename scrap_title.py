@@ -6,7 +6,7 @@ from random import randint
 import csv
 import os
 
-outfile = open("AB_MUE_20-08-2020.csv", "w", newline='',encoding="utf-8")
+outfile = open("AB_MUE_25-08-2020.csv", "w", newline='',encoding="utf-8")
 writer = csv.writer(outfile)
 
 # wb_url_list = load_workbook('nvli_url_list.xlsm')
@@ -16,7 +16,7 @@ writer = csv.writer(outfile)
 
 # excel_file_name = 'AB_MUE_20-08-2020.xlsx'
 file_extn_list =[]
-img_path = r"F:\nvli\AB_MUE_20-08-2020"
+img_path = r"F:\nvli\AB_MUE_25-08-2020"
 for file in os.listdir(img_path):
     # print(file)
     file_extn_list.append(file)

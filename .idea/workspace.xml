@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d18b018-cd4b-43ee-9db2-36e9ff836df0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scrap_excel.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scrap_title.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/01.py" beforeDir="false" afterPath="$PROJECT_DIR$/01.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edit_entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/edit_entry.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fill_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/fill_form.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_handler_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_handler_number.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrap_excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrap_excel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrap_title.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrap_title.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +37,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.get_handler_number">
+  <component name="RunManager" selected="Python.fill_form">
     <configuration name="01" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="metadata" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.get_handler_number" />
         <item itemvalue="Python.fill_form" />
         <item itemvalue="Python.01" />
         <item itemvalue="Python.scrap_excel" />
         <item itemvalue="Python.scrap_title" />
+        <item itemvalue="Python.get_handler_number" />
       </list>
     </recent_temporary>
   </component>
@@ -170,22 +171,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1597930529465" />
-    <state width="1344" height="187" key="GridCell.Tab.0.bottom" timestamp="1598194003081">
+    <state width="1344" height="146" key="GridCell.Tab.0.bottom" timestamp="1598732180334">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="187" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1598194003081" />
-    <state width="1344" height="187" key="GridCell.Tab.0.center" timestamp="1598194003081">
+    <state width="1344" height="146" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1598732180334" />
+    <state width="1344" height="146" key="GridCell.Tab.0.center" timestamp="1598732180334">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="187" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1598194003081" />
-    <state width="1344" height="187" key="GridCell.Tab.0.left" timestamp="1598194003081">
+    <state width="1344" height="146" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1598732180334" />
+    <state width="1344" height="146" key="GridCell.Tab.0.left" timestamp="1598732180334">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="187" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1598194003081" />
-    <state width="1344" height="187" key="GridCell.Tab.0.right" timestamp="1598194003081">
+    <state width="1344" height="146" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1598732180334" />
+    <state width="1344" height="146" key="GridCell.Tab.0.right" timestamp="1598732180334">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="187" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1598194003081" />
+    <state width="1344" height="146" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1598732180334" />
     <state x="184" y="0" key="SettingsEditor" timestamp="1597740007304">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

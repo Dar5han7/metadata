@@ -1,11 +1,11 @@
 import csv
 
-input_csv_file_name = "AB_MUE_20-08-2020.csv"
-output_csv_file_name = "AB_MUE_20-08-2020_formatted.csv"
+input_csv_file_name = "AB_MUE_25-08-2020.csv"
+output_csv_file_name = "AB_MUE_25-08-2020_formatted.csv"
 title_word = "Title"
 tables = []
 
-with open(input_csv_file_name, 'r',encoding="utf-8") as csv_file:
+with open(input_csv_file_name, 'r' ) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     table = []
     for row in csv_reader:
@@ -34,7 +34,7 @@ for table_number, table in enumerate(tables):
             parsed[key] = ["" for x in range(number_of_tables)]
             parsed[key][table_number] = value
 
-with open(output_csv_file_name, 'w',encoding="utf-8") as f:
+with open(output_csv_file_name, 'w' ) as f:
     csv_writer = csv.writer(f)
 
     for key, value in parsed.items():

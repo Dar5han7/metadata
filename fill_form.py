@@ -31,10 +31,10 @@ import time
 from openpyxl    import *
 from collections import defaultdict
 from selenium.webdriver.support.ui import Select
-path = "Metadata -Anand - AB_MUE_20-08-2020.xlsm"
-Sheet = "SHEET"
+path = "AB_MUE_25-08-2020_upload.xlsx"
+Sheet = "01"
 wb = load_workbook(path)
-img_path = r"F:\nvli\AB_MUE_20-08-2020"
+img_path = r"F:\nvli\AB_MUE_25-08-2020"
 
 dspace_dict = defaultdict(list)
 Sheet_Name = wb[Sheet]
@@ -49,7 +49,7 @@ for row in Sheet_Name.iter_rows():
     for cell_ind,cell in enumerate(Row):
         # print(cell,cell_ind)
         dspace_dict[keys[cell_ind]].append( cell)
-    if count ==300:
+    if count ==100:
         break
     else:
         count +=1
@@ -95,7 +95,7 @@ link.click()
 
 # time.sleep(5)
 
-link = driver.find_element_by_link_text('Beads')
+link = driver.find_element_by_link_text('Manuscript')
 link.click()
 # window_after = driver.window_handles[0]
 # driver.switch_to.window(window_after)
@@ -110,14 +110,14 @@ driver.switch_to.window(window_after)
 # driver1.wait = WebDriverWait(driver1,10)
 driver.wait = WebDriverWait(driver,10)
 failed_count=0
-for i in range(229,234):
+for i in range(6,50):
     for dspace_instance in dspace_dict:
         print(dspace_instance)
         # print(dspace_instance[:-1])
         print(dspace_dict[dspace_instance][i])
 
         if dspace_instance in ['dc_identifier_qualifier_1','dc_format_qualifier_1','dc_format_qualifier_2',
-                               'dc_format_qualifier_3','dc_format_qualifier_4','dc_coverage_qualifier_1','dc_coverage_qualifier_2','dc_type']:
+                               'dc_format_qualifier_3','dc_format_qualifier_4','dc_coverage_qualifier_1','dc_coverage_qualifier_2','dc_type',"dc_language_iso"]:
             try:
                 select = Select(driver.find_element_by_name(dspace_instance))
             except Exception:
@@ -130,11 +130,8 @@ for i in range(229,234):
                 # try:
                 #     select.select_by_value(dspace_dict[dspace_instance[:-1]+str(int(dspace_instance[-1])-1)][i].lower().replace(" ", ""))
                 # except Exception:
-                #     select.select_by_value(dspace_dict[dspace_instance][i])
+                #     select.select_by_value(dspace_dict[dspace_instance[:-1]+str(int(dspace_instance[-1])-1)][i])
                 #
-
-
-
         elif dspace_instance in ['submit_dc_coverage_add',"submit_next1","submit_next2",'submit_dc_format_add1', 'submit_dc_format_add2',"submit_upload","submit_next3","submit_next4","submit_grant","submit",'submit_dc_format_add3']:
             try:
                 link = driver.find_element_by_name(dspace_instance).click()
@@ -150,7 +147,7 @@ for i in range(229,234):
                     link.click()
                     time.sleep(20)
 
-                    link = driver.find_element_by_link_text('Beads')
+                    link = driver.find_element_by_link_text('Miniature Painting')
                     link.click()
                     time.sleep(20)
 
@@ -212,7 +209,7 @@ for i in range(229,234):
                 autoit.win_wait(handle, 100)
                 autoit.control_set_text(handle, "Edit1", jpg)
                 autoit.control_click(handle, "Button1")
-                time.sleep(15)
+                time.sleep(10)
 
         elif dspace_instance == None:
             # with open("success.txt", "a") as f:
@@ -220,10 +217,10 @@ for i in range(229,234):
             continue
         else:
             try:
-                # if dspace_dict[dspace_instance][i] !="":
                 driver.find_element_by_name(dspace_instance).send_keys(dspace_dict[dspace_instance][i])
-                # else:
-                #     pass
             except Exception:
-                pass
+                try:
+                    driver.find_element_by_name(dspace_instance[:-1]+str(int(dspace_instance[-1])-1)).send_keys(dspace_dict[dspace_instance][i])
+                except Exception:
+                    pass
 

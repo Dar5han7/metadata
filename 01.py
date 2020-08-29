@@ -7,14 +7,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import urllib, os, urllib.request
 import time
-from openpyxl    import *
+from openpyxl import *
 from collections import defaultdict
 import pandas as pd
 from selenium.webdriver.support.ui import Select
-path = "Metadata -Anand.xlsm"
+# path = "Metadata -Anand.xlsm"
 Sheet = "SHEET"
-wb = load_workbook(path)
-img_path = r"F:\nvli\AB_MUE_20-08-2020"
+# wb = load_workbook(path)
+img_path = r"F:\nvli\AB_MUE_25-08-2020"
 #
 # dspace_dict = defaultdict(list)
 # Sheet_Name = wb[Sheet]
@@ -48,9 +48,18 @@ img_path = r"F:\nvli\AB_MUE_20-08-2020"
 #         print(text)
 #         image =[]
 id = []
+img =[]
 for file in os.listdir(img_path):
     print(file)
     id.append(file)
+for i in range(len(id)):
+    count =0
+    for files in os.listdir(img_path +"\\"+id[i]):
+        if files.endswith("h.jpg"):
+            count+=1
+    img.append(count)
+
+
     # if file.startswith(text):
     #     img_path1 = os.path.join(img_path,file)
     #     print(img_path1)
@@ -62,9 +71,11 @@ for file in os.listdir(img_path):
     #
     #                     image.append(path)
 
-df = pd.DataFrame(data=id,columns=[0])
-df.to_excel('test.xlsx', header=True, index=False)
+# df = pd.DataFrame(data=id,columns=[0])
+# df.to_excel('test.xlsx', header=True, index=False)
+df = pd.DataFrame(data=img,columns=[0])
+df.to_excel('count.xlsx', header=True, index=False)
 # df.to_excel('test.xlsx', header=True, index=False)
 print(id)
-print(path)
+# print(path)
 # print(image[0])
