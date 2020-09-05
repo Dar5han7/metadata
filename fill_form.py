@@ -31,10 +31,10 @@ import time
 from openpyxl    import *
 from collections import defaultdict
 from selenium.webdriver.support.ui import Select
-path = "AB_MUE_25-08-2020_upload.xlsx"
-Sheet = "01"
+path = "AB_MUE_03.09.2020_upload.xlsx"
+Sheet = "Sculpture"
 wb = load_workbook(path)
-img_path = r"F:\nvli\AB_MUE_25-08-2020"
+img_path = r"F:\nvli\AB_MUE_03.09.2020_ANAND"
 
 dspace_dict = defaultdict(list)
 Sheet_Name = wb[Sheet]
@@ -95,7 +95,7 @@ link.click()
 
 # time.sleep(5)
 
-link = driver.find_element_by_link_text('Manuscript')
+link = driver.find_element_by_link_text('Sculpture')
 link.click()
 # window_after = driver.window_handles[0]
 # driver.switch_to.window(window_after)
@@ -110,7 +110,7 @@ driver.switch_to.window(window_after)
 # driver1.wait = WebDriverWait(driver1,10)
 driver.wait = WebDriverWait(driver,10)
 failed_count=0
-for i in range(6,50):
+for i in range(0,29):
     for dspace_instance in dspace_dict:
         print(dspace_instance)
         # print(dspace_instance[:-1])
@@ -147,7 +147,7 @@ for i in range(6,50):
                     link.click()
                     time.sleep(20)
 
-                    link = driver.find_element_by_link_text('Miniature Painting')
+                    link = driver.find_element_by_link_text('Sculpture')
                     link.click()
                     time.sleep(20)
 
