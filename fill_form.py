@@ -31,10 +31,10 @@ import time
 from openpyxl    import *
 from collections import defaultdict
 from selenium.webdriver.support.ui import Select
-path = "AB_MUE_03.09.2020_upload.xlsx"
-Sheet = "Sculpture"
+path = "NGMA_DEL_04-09-2020_ANAND_upload.xlsx"
+Sheet = "Drawing"
 wb = load_workbook(path)
-img_path = r"F:\nvli\AB_MUE_03.09.2020_ANAND"
+img_path = r"F:\nvli\NGMA_DEL_04-09-2020_ANAND"
 
 dspace_dict = defaultdict(list)
 Sheet_Name = wb[Sheet]
@@ -49,7 +49,7 @@ for row in Sheet_Name.iter_rows():
     for cell_ind,cell in enumerate(Row):
         # print(cell,cell_ind)
         dspace_dict[keys[cell_ind]].append( cell)
-    if count ==100:
+    if count ==270:
         break
     else:
         count +=1
@@ -88,14 +88,14 @@ link.click()
 
 # print(str(Allahabad Museum))
 
-link = driver.find_element_by_xpath("/html/body/main/div[3]/div[2]/div[1]/div/div/div/h4/a")
+link = driver.find_element_by_xpath("/html/body/main/div[3]/div[2]/div[1]/div/div[2]/div/h4/a")
 link.click()
 # window_after = driver.window_handles[0]
 # driver.switch_to.window(window_after)
 
 # time.sleep(5)
 
-link = driver.find_element_by_link_text('Sculpture')
+link = driver.find_element_by_link_text('Drawing')
 link.click()
 # window_after = driver.window_handles[0]
 # driver.switch_to.window(window_after)
@@ -110,7 +110,7 @@ driver.switch_to.window(window_after)
 # driver1.wait = WebDriverWait(driver1,10)
 driver.wait = WebDriverWait(driver,10)
 failed_count=0
-for i in range(0,29):
+for i in range(99,129):
     for dspace_instance in dspace_dict:
         print(dspace_instance)
         # print(dspace_instance[:-1])
@@ -122,11 +122,15 @@ for i in range(0,29):
                 select = Select(driver.find_element_by_name(dspace_instance))
             except Exception:
                 select = Select(driver.find_element_by_name(dspace_instance[:-1]+str(int(dspace_instance[-1])-1)))
+            else:
+                pass
 
             try:
                 select.select_by_value(dspace_dict[dspace_instance][i].lower().replace(" ",""))
             except Exception:
                 select.select_by_value(dspace_dict[dspace_instance][i])
+            else:
+                pass
                 # try:
                 #     select.select_by_value(dspace_dict[dspace_instance[:-1]+str(int(dspace_instance[-1])-1)][i].lower().replace(" ", ""))
                 # except Exception:
@@ -143,11 +147,11 @@ for i in range(0,29):
                     link.click()
                     time.sleep(20)
 
-                    link = driver.find_element_by_xpath("/html/body/main/div[3]/div[2]/div[1]/div/div/div/h4/a")
+                    link = driver.find_element_by_xpath("/html/body/main/div[3]/div[2]/div[1]/div/div[2]/div/h4/a")
                     link.click()
                     time.sleep(20)
 
-                    link = driver.find_element_by_link_text('Sculpture')
+                    link = driver.find_element_by_link_text('Drawing')
                     link.click()
                     time.sleep(20)
 
