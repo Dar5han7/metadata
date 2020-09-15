@@ -46,7 +46,7 @@ ws["A1"] = "Handler No"
 ws["B1"] = "Accession No"
 ws["C1"] = "index No"
 
-for i in range(2400,2504):
+for i in range(2600,2733):
     # // *[ @ id = "content"] / div[3] / div / div[1] / table / tbody / tr[6] / td[2] / a
     driver.find_element_by_xpath('//*[@id="content"]/div[2]/table/tbody/tr['+str(i)+']/td[2]/a').click()
     # try://*[@id="content"]/div[3]/div/div[1]/div[2]/table/tbody/tr[6]/td[2]
