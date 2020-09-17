@@ -31,10 +31,10 @@ import time
 from openpyxl    import *
 from collections import defaultdict
 from selenium.webdriver.support.ui import Select
-path = "NGMA_DEL_04-09-2020_ANAND_upload.xlsx"
-Sheet = "Painting (final)"
+path = "NGMA_DEL_10-09-2020_ANAND_upload.xlsx"
+Sheet = "Painting"
 wb = load_workbook(path)
-img_path = r"F:\nvli\NGMA_DEL_04-09-2020_ANAND"
+img_path = r"F:\nvli\NGMA_DEL_10-09-2020_ANAND"
 
 dspace_dict = defaultdict(list)
 Sheet_Name = wb[Sheet]
@@ -49,7 +49,7 @@ for row in Sheet_Name.iter_rows():
     for cell_ind,cell in enumerate(Row):
         # print(cell,cell_ind)
         dspace_dict[keys[cell_ind]].append( cell)
-    if count ==260:
+    if count ==200:
         break
     else:
         count +=1
@@ -110,7 +110,7 @@ driver.switch_to.window(window_after)
 # driver1.wait = WebDriverWait(driver1,10)
 driver.wait = WebDriverWait(driver,10)
 failed_count=0
-for i in range(199,254):
+for i in range(126,149):
     for dspace_instance in dspace_dict:
         print(dspace_instance)
         # print(dspace_instance[:-1])
@@ -128,13 +128,13 @@ for i in range(199,254):
             try:
                 select.select_by_value(dspace_dict[dspace_instance][i].lower().replace(" ",""))
             except Exception:
-                select.select_by_value(dspace_dict[dspace_instance][i])
-            else:
-                pass
-                # try:
-                #     select.select_by_value(dspace_dict[dspace_instance[:-1]+str(int(dspace_instance[-1])-1)][i].lower().replace(" ", ""))
-                # except Exception:
-                #     select.select_by_value(dspace_dict[dspace_instance[:-1]+str(int(dspace_instance[-1])-1)][i])
+                try:
+                    select.select_by_value(dspace_dict[dspace_instance][i])
+                except Exception:
+                    try:
+                        select.select_by_value(dspace_dict[dspace_instance[:-1]+str(int(dspace_instance[-1])-1)][i].lower().replace(" ", ""))
+                    except Exception:
+                        select.select_by_value(dspace_dict[dspace_instance[:-1]+str(int(dspace_instance[-1])-1)][i])
 
         elif dspace_instance in ['submit_dc_coverage_add',"submit_next1","submit_next2",'submit_dc_format_add1', 'submit_dc_format_add2',"submit_upload","submit_next3","submit_next4","submit_grant","submit",'submit_dc_format_add3']:
             try:

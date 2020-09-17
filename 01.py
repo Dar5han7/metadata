@@ -14,7 +14,7 @@ from selenium.webdriver.support.ui import Select
 # path = "Metadata -Anand.xlsm"
 Sheet = "SHEET"
 # wb = load_workbook(path)
-img_path = r"F:\nvli\NGMA_DEL_04-09-2020_ANAND"
+img_path = r"F:\nvli\NGMA_DEL_10-09-2020_ANAND"
 #
 # dspace_dict = defaultdict(list)
 # Sheet_Name = wb[Sheet]
@@ -72,7 +72,7 @@ for i in range(len(id)):
     #                     image.append(path)
 
 df = pd.DataFrame(data=id,columns=[0])
-df.to_excel('ngma.xlsx', header=True, index=False)
+df.to_excel('ngma10.xlsx', header=True, index=False)
 # df = pd.DataFrame(data=img,columns=[0])
 # df.to_excel('count.xlsx', header=True, index=False)
 # df.to_excel('test.xlsx', header=True, index=False)
