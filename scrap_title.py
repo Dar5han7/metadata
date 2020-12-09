@@ -5,8 +5,8 @@ from time import sleep
 from random import randint
 import csv
 import os
-
-outfile = open("NGMA_DEL_10-09-2020_ANAND.csv", "w", newline='',encoding="utf-8")
+import pandas as pd
+outfile = open("NATMUE_DEL_01-12-2020_ANAND.csv", "w", newline='',encoding="utf-8")
 writer = csv.writer(outfile)
 
 # wb_url_list = load_workbook('nvli_url_list.xlsm')
@@ -16,7 +16,7 @@ writer = csv.writer(outfile)
 
 # excel_file_name = 'AB_MUE_20-08-2020.xlsx'
 file_extn_list =[]
-img_path = r"F:\nvli\NGMA_DEL_10-09-2020_ANAND"
+img_path = r"F:\nvli\NATMUE_DEL_01-12-2020_ANAND"
 for file in os.listdir(img_path):
     # print(file)
     file_extn_list.append(file)
@@ -42,7 +42,7 @@ ws.append(website_list)
 for url in website_list:
     print(url)
     htmlString = get(url).text
-    sleep(2)
+    sleep(3)
     html = BeautifulSoup(htmlString, 'lxml')
     table_tag = html.select("table")[0]
     tab_data = [[item.text for item in row_data.select("th,td")]
@@ -51,3 +51,7 @@ for url in website_list:
     for data in tab_data:
         writer.writerow(data)
         print(' '.join(data))
+
+d = {"folder":file_extn_list,"link":website_list}
+df = pd.DataFrame(data=d )
+df.to_excel('ngma01122020.xlsx', header=True, index=False)

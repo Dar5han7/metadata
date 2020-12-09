@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d18b018-cd4b-43ee-9db2-36e9ff836df0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/gg.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gov.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01.py" beforeDir="false" afterPath="$PROJECT_DIR$/01.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGMA_DEL_10-09-2020_ANAND.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NGMA_DEL_10-09-2020_ANAND_formatted.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/fill_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/fill_form.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_handler_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_handler_number.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrap_excel.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrap_excel.py" afterDir="false" />
@@ -17,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -31,33 +36,13 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/nvli" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.fill_form">
-    <configuration name="01" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="metadata" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/01.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="fill_form" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="metadata" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -92,6 +77,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/get_handler_number.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="gov" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="metadata" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gov.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -145,10 +151,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.fill_form" />
-        <item itemvalue="Python.get_handler_number" />
-        <item itemvalue="Python.01" />
         <item itemvalue="Python.scrap_excel" />
+        <item itemvalue="Python.get_handler_number" />
         <item itemvalue="Python.scrap_title" />
+        <item itemvalue="Python.gov" />
       </list>
     </recent_temporary>
   </component>
@@ -170,49 +176,53 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1599147774245" />
-    <state width="1344" height="404" key="GridCell.Tab.0.bottom" timestamp="1600372239327">
+    <state x="392" y="0" key="#fill_form" timestamp="1603102978257">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="404" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600372239327" />
-    <state width="1344" height="404" key="GridCell.Tab.0.center" timestamp="1600372239327">
+    <state x="392" y="0" key="#fill_form/0.0.1366.728@0.0.1366.728" timestamp="1603102978257" />
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1603479610180">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="404" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1600372239327" />
-    <state width="1344" height="404" key="GridCell.Tab.0.left" timestamp="1600372239327">
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603479610180" />
+    <state width="1344" height="182" key="GridCell.Tab.0.bottom" timestamp="1607366070791">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="404" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1600372239327" />
-    <state width="1344" height="404" key="GridCell.Tab.0.right" timestamp="1600372239327">
+    <state width="1344" height="182" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1607366070791" />
+    <state width="1344" height="182" key="GridCell.Tab.0.center" timestamp="1607366070791">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="404" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1600372239327" />
-    <state width="1344" height="217" key="GridCell.Tab.1.bottom" timestamp="1599424195076">
+    <state width="1344" height="182" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1607366070791" />
+    <state width="1344" height="182" key="GridCell.Tab.0.left" timestamp="1607366070791">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="217" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599424195076" />
-    <state width="1344" height="217" key="GridCell.Tab.1.center" timestamp="1599424195076">
+    <state width="1344" height="182" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1607366070791" />
+    <state width="1344" height="182" key="GridCell.Tab.0.right" timestamp="1607366070791">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="217" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1599424195076" />
-    <state width="1344" height="217" key="GridCell.Tab.1.left" timestamp="1599424195076">
+    <state width="1344" height="182" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1607366070791" />
+    <state width="1344" height="216" key="GridCell.Tab.1.bottom" timestamp="1600792542168">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="217" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1599424195076" />
-    <state width="1344" height="217" key="GridCell.Tab.1.right" timestamp="1599424195076">
+    <state width="1344" height="216" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1600792542168" />
+    <state width="1344" height="216" key="GridCell.Tab.1.center" timestamp="1600792542168">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1344" height="217" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1599424195076" />
+    <state width="1344" height="216" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1600792542168" />
+    <state width="1344" height="216" key="GridCell.Tab.1.left" timestamp="1600792542168">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1344" height="216" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1600792542168" />
+    <state width="1344" height="216" key="GridCell.Tab.1.right" timestamp="1600792542168">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1344" height="216" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1600792542168" />
     <state x="263" y="98" key="IDE.errors.dialog" timestamp="1598778304938">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="263" y="98" key="IDE.errors.dialog/0.0.1366.728@0.0.1366.728" timestamp="1598778304938" />
-    <state x="184" y="0" key="SettingsEditor" timestamp="1597740007304">
+    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604680899085">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1597740007304" />
-    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597243543524">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728@0.0.1366.728" timestamp="1597243543524" />
+    <state x="289" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.728@0.0.1366.728" timestamp="1604680899085" />
   </component>
 </project>

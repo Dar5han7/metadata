@@ -1,7 +1,7 @@
 import csv
 
-input_csv_file_name = "NGMA_DEL_10-09-2020_ANAND.csv"
-output_csv_file_name = "NGMA_DEL_10-09-2020_ANAND_formatted.csv"
+input_csv_file_name = "NATMUE_DEL_01-12-2020_ANAND.csv"
+output_csv_file_name = "NATMUE_DEL_01-12-2020_ANAND_formatted.csv"
 title_word = "Title"
 tables = []
 

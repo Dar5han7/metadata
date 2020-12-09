@@ -19,8 +19,10 @@
 # # values_step = {'workspace_item_id':'61', 'step':'2', 'page':'1','jsp':'/submit/edit-metadata.jsp'}
 # get_form = session_requests.get(url)
 # print (get_form.content)
+import shutil,errno
 import autoit
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -31,10 +33,10 @@ import time
 from openpyxl    import *
 from collections import defaultdict
 from selenium.webdriver.support.ui import Select
-path = "NGMA_DEL_10-09-2020_ANAND_upload.xlsx"
-Sheet = "Painting"
+path = "NATMUE_DEL_01-12-2020_ANAND_upload.xlsx"
+Sheet = "Arch"
 wb = load_workbook(path)
-img_path = r"F:\nvli\NGMA_DEL_10-09-2020_ANAND"
+img_path = r"F:\nvli\NATMUE_DEL_01-12-2020_ANAND"
 
 dspace_dict = defaultdict(list)
 Sheet_Name = wb[Sheet]
@@ -49,21 +51,35 @@ for row in Sheet_Name.iter_rows():
     for cell_ind,cell in enumerate(Row):
         # print(cell,cell_ind)
         dspace_dict[keys[cell_ind]].append( cell)
-    if count ==200:
+    if count ==550:
         break
     else:
         count +=1
+
+# ###### to copy image of a specific type to a folder######
+# dst_path = r"F:\nvli\Nat-hh"
+# size = len(dspace_dict["image"])
+# for k in range(0,size):
+#     item_path = os.path.join(img_path,dspace_dict["image"][k])
+#     dst = os.path.join(dst_path, dspace_dict["image"][k])
+#     try:
+#         shutil.copytree(item_path, dst)
+#     except OSError as exc:  # python >2.5
+#         if exc.errno == errno.ENOTDIR:
+#             shutil.copy(item_path, dst)
+#         else:
+#             raise
 
 # print(Row)
 
 print(dspace_dict)
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(ChromeDriverManager().install())
 # driver1 = webdriver.Chrome()
 driver.implicitly_wait(5)
 #
 usrName = 'anand.swaroop.nvli@gmail.com'
-pssWrd = "anand@1#3"
+pssWrd = "Anand@Swaroop$NVLI@!"
 
 driver.maximize_window()
 driver.get("http://moirepository.nvli.in/password-login")
@@ -88,14 +104,14 @@ link.click()
 
 # print(str(Allahabad Museum))
 
-link = driver.find_element_by_xpath("/html/body/main/div[3]/div[2]/div[1]/div/div[2]/div/h4/a")
+link = driver.find_element_by_xpath("/html/body/main/div[3]/div[2]/div[1]/div/div[3]/div/h4/a")
 link.click()
 # window_after = driver.window_handles[0]
 # driver.switch_to.window(window_after)
 
 # time.sleep(5)
 
-link = driver.find_element_by_link_text('Painting')
+link = driver.find_element_by_link_text("Archaeology")
 link.click()
 # window_after = driver.window_handles[0]
 # driver.switch_to.window(window_after)
@@ -110,14 +126,14 @@ driver.switch_to.window(window_after)
 # driver1.wait = WebDriverWait(driver1,10)
 driver.wait = WebDriverWait(driver,10)
 failed_count=0
-for i in range(126,149):
+for i in range(200,229):
     for dspace_instance in dspace_dict:
         print(dspace_instance)
-        # print(dspace_instance[:-1])
+        # print(dspace_instance[:-1])ngma-12516
         print(dspace_dict[dspace_instance][i])
 
         if dspace_instance in ['dc_identifier_qualifier_1','dc_format_qualifier_1','dc_format_qualifier_2',
-                               'dc_format_qualifier_3','dc_format_qualifier_4','dc_coverage_qualifier_1','dc_coverage_qualifier_2','dc_type',"dc_language_iso"]:
+                               'dc_format_qualifier_3','dc_format_qualifier_4','dc_format_qualifier_5','dc_coverage_qualifier_1','dc_coverage_qualifier_2','dc_type',"dc_language_iso"]:
             try:
                 select = Select(driver.find_element_by_name(dspace_instance))
             except Exception:
@@ -126,32 +142,36 @@ for i in range(126,149):
                 pass
 
             try:
-                select.select_by_value(dspace_dict[dspace_instance][i].lower().replace(" ",""))
+                select.select_by_value(dspace_dict[dspace_instance][i])
+
             except Exception:
                 try:
-                    select.select_by_value(dspace_dict[dspace_instance][i])
-                except Exception:
+                    select.select_by_value(dspace_dict[dspace_instance][i].lower().replace(" ", ""))
+                except Exception as e:
+                    print(e)
                     try:
                         select.select_by_value(dspace_dict[dspace_instance[:-1]+str(int(dspace_instance[-1])-1)][i].lower().replace(" ", ""))
                     except Exception:
                         select.select_by_value(dspace_dict[dspace_instance[:-1]+str(int(dspace_instance[-1])-1)][i])
 
-        elif dspace_instance in ['submit_dc_coverage_add',"submit_next1","submit_next2",'submit_dc_format_add1', 'submit_dc_format_add2',"submit_upload","submit_next3","submit_next4","submit_grant","submit",'submit_dc_format_add3']:
+        elif dspace_instance in ["submit_dc_contributor_author_add",'submit_dc_coverage_add',"submit_next1","submit_next2",'submit_dc_format_add1', 'submit_dc_format_add2',"submit_upload","submit_next3","submit_next4","submit_grant","submit",'submit_dc_format_add3','submit_dc_format_add4']:
             try:
                 link = driver.find_element_by_name(dspace_instance).click()
+                # time.sleep(1)
             except Exception:
                 try:
                     link = driver.find_element_by_name(dspace_instance[:-1]).click()
+                    # time.sleep(1)
                 except Exception:
                     link = driver.find_element_by_xpath("/html/body/header/div/div/a/img")
                     link.click()
                     time.sleep(20)
 
-                    link = driver.find_element_by_xpath("/html/body/main/div[3]/div[2]/div[1]/div/div[2]/div/h4/a")
+                    link = driver.find_element_by_xpath("/html/body/main/div[3]/div[2]/div[1]/div/div[3]/div/h4/a")
                     link.click()
                     time.sleep(20)
 
-                    link = driver.find_element_by_link_text('Painting')
+                    link = driver.find_element_by_link_text('Archaeology')
                     link.click()
                     time.sleep(20)
 
@@ -213,7 +233,24 @@ for i in range(126,149):
                 autoit.win_wait(handle, 100)
                 autoit.control_set_text(handle, "Edit1", jpg)
                 autoit.control_click(handle, "Button1")
-                time.sleep(10)
+                time.sleep(5)
+                while True:
+                    try:
+                        driver.find_element_by_xpath(
+                            "/html/body/main/div/form[2]/div[3]/div[5]/div/table/tbody/tr[" + str(
+                                count) + "]/td[3]/span")
+                        print("image uploaded")
+                        break
+                    except Exception:
+                        try:
+                            driver.find_element_by_xpath(
+                                "/html/body/main/div/form[2]/div[3]/div[5]/div/table/tbody/tr/td[3]/span")
+                            print("image uploaded")
+                            break
+                        except Exception:
+                            print("not yet uploaded")
+                            time.sleep(5)
+                count += 1
 
         elif dspace_instance == None:
             # with open("success.txt", "a") as f:
@@ -221,10 +258,17 @@ for i in range(126,149):
             continue
         else:
             try:
-                driver.find_element_by_name(dspace_instance).send_keys(dspace_dict[dspace_instance][i])
+                if dspace_instance in ['dc_identifier_value_1']:
+                    driver.find_element_by_name(dspace_instance).send_keys(str(dspace_dict[dspace_instance][i]))
+                else:
+                    driver.find_element_by_name(dspace_instance).send_keys(dspace_dict[dspace_instance][i])
             except Exception:
                 try:
-                    driver.find_element_by_name(dspace_instance[:-1]+str(int(dspace_instance[-1])-1)).send_keys(dspace_dict[dspace_instance][i])
+                    if dspace_instance in ['dc_identifier_value_1']:
+                        driver.find_element_by_name(dspace_instance[:-1]+str(int(dspace_instance[-1])-1)).send_keys(str(dspace_dict[dspace_instance][i]))
+                    else:
+                        driver.find_element_by_name(dspace_instance[:-1]+str(int(dspace_instance[-1])-1)).send_keys((dspace_dict[dspace_instance][i]))
+
                 except Exception:
                     pass
 
